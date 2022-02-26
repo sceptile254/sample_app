@@ -4,7 +4,8 @@
 新しくオブジェクトが作成され、Listモデルに存在するtitle,bodyが
 格納できるようになる-->
 <!-- form_with部分 -->
-<%= form_with model:@list do |f| %>
+<%= form_with model:@list, url:'/lists', method: :post do |f| %>
+
   <h4>タイトル</h4>
   <%= f.text_field :title %>
 
