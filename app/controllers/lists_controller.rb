@@ -10,14 +10,17 @@ class ListsController < ApplicationController
     list = List.new(list_params)
     # 3. データをデータベースに保存するためのsaveメソッド実行
     list.save
-    # トップ画面へリダイレクト
-    redirect_to '/top'
+    # 詳細画面へリダイレクト
+    redirect_to list_path(list.id)
   end
 
   def index
+    @lists = List.all
+    # listsテーブル内の全データを取得し、@lists（インスタンス変数）に代入
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def edit

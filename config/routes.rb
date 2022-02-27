@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   get 'lists/new'
-  # POST=新しいデータの作成
-  # データを追加するためのルーティングを追記する
-  post 'lists' => 'lists#create'
-  get 'lists/index'
-  get 'lists/show'
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'lists/edit'
   get 'homes/top'
   get '/top' => 'homes#top'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post 'lists' => 'lists#create'
+  get 'lists' => 'lists#index'
+  # .../lists/1や.../lists/3に該当する
+  get 'lists/:id' => 'lists#show', as: 'list'
 end
